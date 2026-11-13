@@ -7,4 +7,15 @@
 
      Unlike the baseline, this file may grow, but every entry is a reviewed decision. -->
 <FindBugsFilter>
+  <!-- D1: Turn off representation-exposure checks in Project Pulse application code.
+       Course/Section/Team associations and their collection helpers intentionally share managed
+       entities; copying associations would detach mutations from the managed graph. Controllers
+       and services retain Spring-injected collaborators, and DTOs/aggregation beans are transfer
+       containers, not independently owned immutable snapshots. Shallow copies would not isolate
+       the entities within them. Keep those ownership contracts rather than imposing blanket copies.
+       This accepts internal aliasing risk; it is not a claim that all mutable exposure is harmless. -->
+  <Match>
+    <Class name="~team\.projectpulse\..*"/>
+    <Bug pattern="EI_EXPOSE_REP,EI_EXPOSE_REP2"/>
+  </Match>
 </FindBugsFilter>

@@ -24,17 +24,29 @@ public class UserUtils {
 
     public Integer getUserId() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth == null || !auth.isAuthenticated()) return null;
+        if (auth == null || !auth.isAuthenticated()) {
+            return null;
+        }
 
         Object principal = auth.getPrincipal();
-        if (!(principal instanceof Jwt jwt)) return null;
+        if (!(principal instanceof Jwt jwt)) {
+            return null;
+        }
 
         Object claim = jwt.getClaim("userId");
-        if (claim == null) return null;
+        if (claim == null) {
+            return null;
+        }
 
-        if (claim instanceof Integer i) return i;
-        if (claim instanceof Long l) return l.intValue();
-        if (claim instanceof String s) return Integer.valueOf(s);
+        if (claim instanceof Integer i) {
+            return i;
+        }
+        if (claim instanceof Long l) {
+            return l.intValue();
+        }
+        if (claim instanceof String s) {
+            return Integer.valueOf(s);
+        }
 
         return null;
     }

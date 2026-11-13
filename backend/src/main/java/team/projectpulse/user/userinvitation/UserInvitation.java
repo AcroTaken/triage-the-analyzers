@@ -15,6 +15,7 @@ public class UserInvitation {
 
 
     public UserInvitation() {
+        // Required by JPA when loading entities; application constructors initialize new instances.
     }
 
     public UserInvitation(String email, Integer courseId, Integer sectionId, String token, String role) {

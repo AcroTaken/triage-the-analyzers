@@ -50,8 +50,6 @@ public class ArtifactLink {
     private PeerEvaluationUser updatedBy;
 
 
-    public ArtifactLink() {
-    }
 
     public Long getId() {
         return id;

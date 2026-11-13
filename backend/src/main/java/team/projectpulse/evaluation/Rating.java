@@ -17,6 +17,7 @@ public class Rating {
 
 
     public Rating() {
+        // Required by JPA when loading entities; application constructors initialize new instances.
     }
 
     public Rating(Criterion criterion, Double actualScore) {

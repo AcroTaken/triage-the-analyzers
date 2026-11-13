@@ -16,8 +16,6 @@ public class PeerEvaluationAverage {
     private List<RatingAverage> ratingAverages;
 
 
-    public PeerEvaluationAverage() {
-    }
 
     public Integer getStudentId() {
         return studentId;

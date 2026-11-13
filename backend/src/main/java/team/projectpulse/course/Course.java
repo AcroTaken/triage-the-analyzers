@@ -33,6 +33,7 @@ public class Course {
     private List<Rubric> rubrics = new ArrayList<>();
 
     public Course() {
+        // Required by JPA when loading entities; application constructors initialize new instances.
     }
 
     public Course(String courseName, String courseDescription) {
