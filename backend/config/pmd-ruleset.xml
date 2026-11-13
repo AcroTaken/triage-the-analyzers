@@ -12,6 +12,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
     <description>PMD quickstart, with Project Pulse's decisions.</description>
+    <!-- D2: Enforce both constructor rules. Keep and explain JPA/bean no-arg constructors
+         alongside overloads; remove only sole public empty constructors, for which Java supplies
+         the identical public no-arg constructor. Never make an entity constructor private. -->
+    <!-- D3: Enforce braces even for guard clauses: association helpers and authorization code
+         are edited frequently, and indentation must not disguise an unconditional second line. -->
+    <!-- D4: Enforce log guards. SLF4J placeholders defer formatting, not argument evaluation;
+         keep getter/size/name access inside its level check, with sends and bookkeeping outside. -->
     <rule ref="rulesets/java/quickstart.xml">
     </rule>
 </ruleset>

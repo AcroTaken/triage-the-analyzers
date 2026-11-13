@@ -7,6 +7,7 @@ public class RatingAverage {
 
 
     public RatingAverage() {
+        // Required for bean-style construction before properties are populated.
     }
 
     public RatingAverage(Integer criterionId, Double averageScore) {

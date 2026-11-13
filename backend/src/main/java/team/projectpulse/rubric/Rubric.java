@@ -25,6 +25,7 @@ public class Rubric {
 
 
     public Rubric() {
+        // Required by JPA when loading entities; application constructors initialize new instances.
     }
 
     public Rubric(String rubricName) {

@@ -22,6 +22,7 @@ public class Criterion {
 
 
     public Criterion() {
+        // Required by JPA when loading entities; application constructors initialize new instances.
     }
 
     public Criterion(String criterion, String description, Double maxScore) {

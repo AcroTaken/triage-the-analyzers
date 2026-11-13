@@ -58,6 +58,16 @@ class AuthorizationRuleIntegrationTest extends AbstractIntegrationTest {
     }
 
     @Test
+    @DisplayName("A bearer token cannot be exchanged at the Basic login endpoint")
+    void bearerTokenAtLoginIsRejectedWithoutServerError() throws Exception {
+        this.mockMvc.perform(post(this.baseUrl + "/users/login")
+                        .header(HttpHeaders.AUTHORIZATION, this.studentJohnToken))
+                .andExpect(status().isUnauthorized())
+                .andExpect(jsonPath("$.flag").value(false))
+                .andExpect(jsonPath("$.code").value(StatusCode.UNAUTHORIZED));
+    }
+
+    @Test
     @DisplayName("A team id that names no row is denied, not a server error")
     void adminIsForbiddenForATeamThatDoesNotExist() throws Exception {
         this.mockMvc.perform(get(this.baseUrl + "/teams/" + NO_SUCH_ID).accept(MediaType.APPLICATION_JSON).header(HttpHeaders.AUTHORIZATION, this.adminBingyangToken))

@@ -26,6 +26,7 @@ public class Team {
 
 
     public Team() {
+        // Required by JPA when loading entities; application constructors initialize new instances.
     }
 
     public Team(String teamName, String description, String teamWebsiteUrl) {
@@ -93,13 +94,17 @@ public class Team {
     }
 
     public void addInstructor(Instructor instructor) {
-        if (instructor == null) return;
+        if (instructor == null) {
+            return;
+        }
         this.instructor = instructor;
         instructor.getTeams().add(this);
     }
 
     public void removeInstructor(Instructor instructor) {
-        if (instructor == null) return;
+        if (instructor == null) {
+            return;
+        }
         this.instructor = null;
         instructor.getTeams().remove(this);
     }

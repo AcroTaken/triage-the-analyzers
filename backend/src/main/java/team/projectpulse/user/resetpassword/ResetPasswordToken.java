@@ -16,6 +16,7 @@ public class ResetPasswordToken {
 
 
     public ResetPasswordToken() {
+        // Required by JPA when loading entities; application constructors initialize new instances.
     }
 
     public ResetPasswordToken(String email) {
